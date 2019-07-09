@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link th:replace="navbar :: bootstrap" />
+</head>
+<body>
+<nav th:replace="navbar :: navbar"></nav>
+    <h1>This is a single ad!</h1>
+    <h2 th:text="${post.getBody()}"></h2>
+<div th:include="navbar :: scripts"></div>
+</body>
+</html>

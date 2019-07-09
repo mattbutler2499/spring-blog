@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link th:replace="navbar :: bootstrap" />
+</head>
+<body>
+<nav th:replace="navbar :: navbar"></nav>
+<div class="row justify-content-center text-center">
+    <div class="col-sm-6">
+        <div class="card mb-5" th:each="post : ${posts}">
+            <div class="card-header" th:text="${post.id}"></div>
+            <div class="card-body">
+                <h5 class="card-title" th:text="${post.title}"></h5>
+                <p class="card-text" th:text="${post.body}"></p>
+                <p class="card-text" th:text="${post.author.email}"></p>
+                <a th:href= "@{'/posts/' + ${post.id} + '/edit'}" class="btn btn-primary">Edit Post</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="navbar :: scripts"></div>
+</body>
+</html>
+
